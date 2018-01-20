@@ -1,7 +1,6 @@
 <?
 <?php
-$con = mysqli_connect("localhost","root","","database");
-
+$con = mysqli_connect("localhost","root","","ost2");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -37,14 +36,14 @@ if (mysqli_connect_errno())
 </head>
 
 <body>
-	<form>
+	<form method="post">
 	<h1>Registration Form</h1>
 	<fieldset>
 		<legend>Account Information</legend>
-		<label></label> <input type="text" name="uname" /><br />
-		<label></label> <input type="text" name="email" /><br />
-		<label></label> <input type="password" name="pass" /><br />
-		<label></label> <input type="password" name="cpass" />
+		<label>Username:</label> <input type="text" name="uname" /><br />
+		<label>Email:</label> <input type="email" name="email" /><br />
+		<label>Password:</label> <input type="password" name="pass" id="fld-pass" /><br />
+		<label>Confirm Password:</label> <input type="password" name="cpass" oninput="match_pass(this)" />
 	</fieldset>
 	<fieldset>
 		<legend>User Information</legend>
@@ -58,11 +57,30 @@ if (mysqli_connect_errno())
 	</fieldset>
 	<input type="submit" value="Register" onClick="return submit_form();" />
 	</form>
-
+    <?php
+        if (
+            isset($_POST["uname"]) &&
+            isset($_POST["email"]) &&
+            isset($_POST["pass"]) 
+           ){
+            $uname = $_POST["uname"];
+            $email = $_POST["email"];
+            $pass  = $_POST["pass"];
+            $query = "INSERT INTO accuser_info(Username, Email, Password) VALUES('$uname','$email','$pass')";
+            mysqli_query($con, $query);
+        }
+    ?>
 	<script type="text/javascript">
 		function submit_form(){
 			alert("Thank you for your registration...");
 		}
+        function match_pass(x) {
+            if (x.value == document.getElementById("fld-pass").value) {
+                x.setCustomValidity("");
+            } else {
+                x.setCustomValidity("Password does not match.");
+            }
+        }
 	</script>
 
 </body>
