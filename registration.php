@@ -61,12 +61,27 @@ if (mysqli_connect_errno())
         if (
             isset($_POST["uname"]) &&
             isset($_POST["email"]) &&
-            isset($_POST["pass"]) 
+            isset($_POST["pass"])  &&
+            isset($_POST["fname"]) &&
+            isset($_POST["lname"]) &&
+            isset($_POST["contact"]) &&
+            isset($_POST["address"]) &&
+            isset($_POST["city"]) &&
+            isset($_POST["state"]) &&
+            isset($_POST["zip"]) 
+
            ){
             $uname = $_POST["uname"];
             $email = $_POST["email"];
             $pass  = $_POST["pass"];
-            $query = "INSERT INTO accuser_info(Username, Email, Password) VALUES('$uname','$email','$pass')";
+            $fname = $_POST["fname"];
+            $lname = $_POST["lname"];
+            $contact  = $_POST["contact"];
+            $address = $_POST["address"];
+            $city = $_POST["city"];
+            $state  = $_POST["state"];
+            $zip = $_POST["zip"];
+            $query = "INSERT INTO accuser_info(Username, Email, Password,FirstName,LastName,ContactNumber,Address,City,State,ZIP) VALUES('$uname','$email','$pass','$fname','$lname','$contact','$address','$city','$state','$zip')";
             mysqli_query($con, $query);
         }
     ?>
