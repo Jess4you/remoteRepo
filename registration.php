@@ -86,9 +86,6 @@ if (mysqli_connect_errno())
         }
     ?>
 	<script type="text/javascript">
-		function submit_form(){
-			alert("Thank you for your registration...");
-		}
         function match_pass(x) {
             if (x.value == document.getElementById("fld-pass").value) {
                 x.setCustomValidity("");
