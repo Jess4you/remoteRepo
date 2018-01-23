@@ -40,20 +40,20 @@ if (mysqli_connect_errno())
 	<h1>Registration Form</h1>
 	<fieldset>
 		<legend>Account Information</legend>
-		<label>Username:</label> <input type="text" name="uname" /><br />
-		<label>Email:</label> <input type="email" name="email" /><br />
-		<label>Password:</label> <input type="password" name="pass" id="fld-pass" /><br />
-		<label>Confirm Password:</label> <input type="password" name="cpass" oninput="match_pass(this)" />
+		<label>Username:</label> <input type="text" name="uname" required="required"/><br />
+		<label>Email:</label> <input type="email" name="email" required="required" /><br />
+		<label>Password:</label> <input type="password" name="pass" id="fld-pass" required="required" /><br />
+		<label>Confirm Password:</label> <input type="password" name="cpass" oninput="match_pass(this)" required="required" />
 	</fieldset>
 	<fieldset>
 		<legend>User Information</legend>
-		<label>Firstname:</label> <input type="text" name="fname" /><br />
-		<label>Lastname:</label> <input type="text" name="lname" /><br />
-		<label>Contact:</label> <input type="text" name="contact" /><br />
-		<label>Address:</label> <textarea rows="2" cols="20" name="address" ></textarea><br />
-		<label>City:</label> <input type="text" name="city" /><br />
-		<label>State:</label> <input type="text" name="state" /><br />
-		<label>ZIP</label> <input type="text" name="zip" />
+		<label>Firstname:</label> <input type="text" name="fname"  required="required"/><br />
+		<label>Lastname:</label> <input type="text" name="lname"  required="required"/><br />
+		<label>Contact:</label> <input type="text" name="contact"  required="required"/><br />
+		<label>Address:</label> <textarea rows="2" cols="20" name="address"  required="required"></textarea><br />
+		<label>City:</label> <input type="text" name="city"  required="required"/><br />
+		<label>State:</label> <input type="text" name="state"  required="required"/><br />
+		<label>ZIP</label> <input type="text" name="zip"  required="required"/>
 	</fieldset>
 	<input type="submit" value="Register" onClick="return submit_form();" />
 	</form>

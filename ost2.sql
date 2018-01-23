@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2018 at 05:37 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Jan 23, 2018 at 07:46 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `useraccounts`
+-- Database: `ost2`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +34,7 @@ CREATE TABLE `accuser_info` (
   `Password` varchar(20) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `LastName` varchar(50) NOT NULL,
-  `ContactNumber` int(12) NOT NULL,
+  `ContactNumber` varchar(20) NOT NULL,
   `Address` varchar(50) NOT NULL,
   `City` varchar(50) NOT NULL,
   `State` varchar(50) NOT NULL,
@@ -45,8 +47,13 @@ CREATE TABLE `accuser_info` (
 --
 
 INSERT INTO `accuser_info` (`Username`, `Email`, `Password`, `FirstName`, `LastName`, `ContactNumber`, `Address`, `City`, `State`, `ZIP`, `ID`) VALUES
-('Testuser', 'Testemail@yahoo.com', 'test', '', '', 0, '', '', '', '', 3),
-('Testuser2', 'Testemail2@gmail.com', 'test', '', '', 0, '', '', '', '', 5);
+('Testuser', 'Testemail@yahoo.com', 'test', '', '', '0', '', '', '', '', 3),
+('Testuser2', 'Testemail2@gmail.com', 'test', '', '', '0', '', '', '', '', 5),
+('Test', 'email@gmail.com', '123', 'Xamp', 'Wamp', '0', 'Wamp', 'Xamp', 'Wamp', '2029', 6),
+('Jess', 'jess@gmail.com', '1111', 'Jess', 'Jess', '924885645', 'Housing Manduriao', 'Iloilo', 'Visayas', '2018', 7),
+('Jess', 'jess@gmail.com', '1111', 'Jess', 'Jess', '924885645', 'Housing Manduriao', 'Iloilo', 'Visayas', '2018', 8),
+('Jess', 'jess@gmail.com', '1111', 'Jess', 'Jess', '924885645', 'Housing Manduriao', 'Iloilo', 'Visayas', '2018', 9),
+('Jess', 'jess@gmail.com', '1111', 'Jess', 'Jess', '0924885645', 'Housing Manduriao', 'Iloilo', 'Visayas', '2018', 10);
 
 --
 -- Indexes for dumped tables
@@ -66,7 +73,9 @@ ALTER TABLE `accuser_info`
 -- AUTO_INCREMENT for table `accuser_info`
 --
 ALTER TABLE `accuser_info`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
